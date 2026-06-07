@@ -11,40 +11,40 @@ public class UsuarioService {
     public static void validarNombre(String nombre) throws NombreInvalidoException {
 
         if (nombre.isBlank()) {
-            throw new NombreInvalidoException("No puede estar vacío. ");
+            throw new NombreInvalidoException("\nEl nombre no puede estar vacío. ");
         }
 
         else if (nombre.length() < 3) {
-            throw new NombreInvalidoException("Debe tener al menos 3 caracteres. ");
+            throw new NombreInvalidoException("\nEl nombre debe tener al menos 3 caracteres. ");
         }
     }
 
     public static void validarEdad(int edad) throws EdadInvalidaException {
 
         if (edad < 18) {
-            throw new EdadInvalidaException("Debe ser mayor o igual a 18 años.  ");
+            throw new EdadInvalidaException("\nLa edad debe ser mayor o igual a 18 años.  ");
         }
 
         else if (edad > 100) {
-            throw new EdadInvalidaException("Debe ser menor o igual a 100 años. ");
+            throw new EdadInvalidaException("\nLa edad debe ser menor o igual a 100 años. ");
         }
     }
 
     public static void validarCorreo(String correo) throws CorreoInvalidoException {
 
         if (correo.contains("@") == false) {
-            throw new CorreoInvalidoException("El correo debe contener: @ ");
+            throw new CorreoInvalidoException("\nEl correo debe contener: @ ");
         }
 
         else if (correo.contains(".") == false) {
-            throw new CorreoInvalidoException("El correo debe contener: . ");
+            throw new CorreoInvalidoException("\nEl correo debe contener: . ");
         }
     }
 
     public static void validarSalario(double salario) throws SalarioInvalidoException {
 
         if (salario <= 0) {
-            throw new SalarioInvalidoException("El salario debe ser mayor que: 0  ");
+            throw new SalarioInvalidoException("\nEl salario debe ser mayor que: 0  ");
         }
     }
 }

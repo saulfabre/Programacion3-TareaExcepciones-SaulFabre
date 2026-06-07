@@ -8,21 +8,35 @@ public class Menu {
 
     public static void main(String args[]) {
 
-        try {
+        int opcion;
 
-            registrarUsuario();
-        }
+        do {
 
-        catch (Exception e) {
+            opcion = mostrarMenu();
 
-            System.out.println(e.getMessage());
-        }
+            switch (opcion) {
+                case 1:
 
-        finally {
+                    try {
 
-            System.out.println("Proceso finalizado. ");
-        }
-    }
+                        registrarUsuario();
+                    }
+
+                    catch (Exception e) {
+
+                        System.out.println(e.getMessage());
+                    }
+
+                    finally {
+
+                        System.out.println("Proceso finalizado. ");
+                    }
+
+                    break;
+            }
+
+    } while (opcion != 2);
+}
 
     public static int mostrarMenu() {
 
@@ -33,11 +47,12 @@ public class Menu {
         System.out.println("=========================\n");
 
         System.out.println("1. Registrar usuario ");
-        System.out.println("Salir\n");
+        System.out.println("2. Salir\n");
 
         System.out.print("Opcion: ");
 
         opcion = scanner.nextInt();
+        scanner.nextLine();
 
         return opcion;
     }
@@ -49,7 +64,7 @@ public class Menu {
         int edad;
         double salarioMensual;
 
-        System.out.print("Nombre: ");
+        System.out.print("\nNombre: ");
         String nombre = scanner.nextLine();
 
         try {
@@ -62,7 +77,8 @@ public class Menu {
 
         catch (InputMismatchException e) {
 
-            System.out.println("Error: Debe ingresar un número válido. ");
+            System.out.println("\nError: Debe ingresar un número válido. ");
+            scanner.nextLine();
             return;
         }
 
@@ -78,7 +94,8 @@ public class Menu {
 
         catch (InputMismatchException e) {
 
-            System.out.println("Error: Debe ingresar un número válido. ");
+            System.out.println("\nError: Debe ingresar un número válido. ");
+            scanner.nextLine();
             return;
 
         }
@@ -89,6 +106,6 @@ public class Menu {
 
         usuarios.add(usuario);
 
-        System.out.println("Usuario registrado correctamente. ");
+        System.out.println("\nUsuario registrado correctamente. ");
     }
 }
