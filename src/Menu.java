@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -31,20 +32,45 @@ public class Menu {
 
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
+        int edad;
+        double salarioMensual;
+
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
 
+        try {
+
         System.out.print("Edad: ");
-        int edad = scanner.nextInt();
+        edad = scanner.nextInt();
+        scanner.nextLine();
+        
+        } 
+
+        catch (InputMismatchException e) {
+
+            System.out.println("Error: Debe ingresar un número válido. ");
+            return;
+        }
 
         System.out.print("Correo electrónico: ");
         String correoElectronico = scanner.nextLine();
 
+        try {
+
         System.out.print("Salario mensual: ");
-        double salarioMensual = scanner.nextDouble();
+        salarioMensual = scanner.nextDouble();
+
+        }
+
+        catch (InputMismatchException e) {
+
+            System.out.println("Error: Debe ingresar un número válido. ");
+            return;
+
+        }
 
         Usuario usuario = new Usuario(nombre, edad, correoElectronico, salarioMensual);
-        
+
         usuarios.add(usuario);
     }
 }
