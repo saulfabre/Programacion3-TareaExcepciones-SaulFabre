@@ -88,5 +88,7 @@ public class Menu {
         Usuario usuario = new Usuario(nombre, edad, correoElectronico, salarioMensual);
 
         usuarios.add(usuario);
+
+        System.out.println("Usuario registrado correctamente. ");
     }
 }
