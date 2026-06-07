@@ -8,6 +8,20 @@ public class Menu {
 
     public static void main(String args[]) {
 
+        try {
+
+            registrarUsuario();
+        }
+
+        catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+
+        finally {
+
+            System.out.println("Proceso finalizado. ");
+        }
     }
 
     public static int mostrarMenu() {
@@ -19,7 +33,7 @@ public class Menu {
         System.out.println("=========================\n");
 
         System.out.println("1. Registrar usuario ");
-        System.out.println("Salir \n");
+        System.out.println("Salir\n");
 
         System.out.print("Opcion: ");
 
@@ -28,7 +42,7 @@ public class Menu {
         return opcion;
     }
 
-    public static void registrarUsuario() {
+    public static void registrarUsuario() throws Exception {
 
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
@@ -43,7 +57,7 @@ public class Menu {
         System.out.print("Edad: ");
         edad = scanner.nextInt();
         scanner.nextLine();
-        
+
         } 
 
         catch (InputMismatchException e) {
@@ -68,6 +82,8 @@ public class Menu {
             return;
 
         }
+
+        UsuarioService.validarUsuario(nombre, edad, correoElectronico, salarioMensual);
 
         Usuario usuario = new Usuario(nombre, edad, correoElectronico, salarioMensual);
 
